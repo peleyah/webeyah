@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBEYAH - Digital Web Agency</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Section Reveal Animation */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            animation: fade-in-up 1s ease-out;
+        }
+
+        /* Hover Animations */
+        .hover-scale:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hover-text:hover {
+            color: #1d4ed8;
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Button Click Animation */
+        .button-click:active {
+            transform: scale(0.95);
+            transition: transform 0.1s;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-gray-800 text-white shadow-lg z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <a href="#"><img src="/assets/images/webeyah_navbar_logo_without_text.png" alt="WEBEYAH Logo" class="h-8 rounded-full"></a>
+                <span class="text-lg font-semibold">WEBEYAH</span>
+            </div>
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="hover-text">About</a></li>
+                <li><a href="#services" class="hover-text">Service</a></li>
+                <li><a href="#contact" class="hover-text">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="flex flex-col justify-center items-center h-screen bg-gray-100 text-center px-4 pt-20 reveal">
+        <div>
+            <img src="/assets/images/webeyah_logo_with_text.png" alt="WEBEYAH Logo" class="w-32 h-32 sm:w-40 sm:h-40 mb-6 rounded-full mx-auto hover-scale">
+            <h1 class="text-3xl sm:text-4xl font-light hover-text"><b>WEBEYAH</b> 🤗</h1>
+            <p class="text-gray-600 mt-4 text-sm sm:text-base">Your Trusted <b>Google Maps SEO</b> Agency.🎯</p>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about p-6 bg-white max-w-4xl mx-auto my-8 rounded-lg shadow reveal">
+        <h2 class="text-xl sm:text-2xl font-semibold mb-4">About Us</h2>
+        <p class="text-sm sm:text-base"><b>WEBEYAH</b> is a cutting-edge digital web agency that provides innovative web solutions for businesses. We specialize in creating exceptional <b>Google Maps SEO</b> services.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services p-6 bg-white max-w-4xl mx-auto my-8 rounded-lg shadow reveal">
+        <h2 class="text-xl sm:text-2xl font-semibold mb-4">Our Services</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-1 gap-1">
+            <div class="service-item bg-gray-50 p-4 rounded-lg shadow hover-scale">
+                <img src="/assets/images/google_maps_seo.webp" alt="Custom Google Maps SEO" class="w-full h-40 object-cover rounded-lg mb-4">
+                <h3 class="text-lg font-semibold">Custom <b>Google Maps SEO</b></h3>
+                <p class="text-sm text-gray-600">Creating tailored Google Maps information designs that reflect your brand and captivate your audience.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact p-6 bg-white max-w-4xl mx-auto my-8 rounded-lg shadow reveal">
+        <h2 class="text-xl sm:text-2xl font-semibold mb-4">Contact Us</h2>
+        <p class="text-sm sm:text-base">
+            Email: <a href="mailto:contact@webeyah.com" class="text-blue-500 hover-text">contact@webeyah.com</a>
+        </p>
+        <p class="text-sm sm:text-base">
+            Phone: <a href="tel:+1234567890" class="text-blue-500 hover-text">+123 456 7890</a>
+        </p>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="text-center p-4 bg-gray-100 text-sm sm:text-base reveal">
+        <p>&copy; 2024 WEBEYAH. All rights reserved.</p>
+    </footer>
+
+    <!-- Scroll Button -->
+    <button class="scroll-button fixed bottom-5 right-5 bg-gray-700 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 text-lg shadow-lg button-click" onclick="toggleScroll()">⇵</button>
+
+    <script>
+        // Toggle scroll function to switch between top and bottom
+        let atBottom = false;
+        function toggleScroll() {
+            if (atBottom) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            }
+            atBottom = !atBottom;
+        }
+
+        // Reveal animation on scroll
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add('opacity-100', 'translate-y-0');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+    </script>
+</body>
+</html>
