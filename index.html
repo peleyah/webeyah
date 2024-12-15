@@ -48,7 +48,7 @@
 </head>
 <body class="font-sans text-gray-700">
     <!-- Navbar -->
-    <nav class="fixed top-0 w-full bg-gray-800 text-white shadow-lg z-50">
+    <nav class="fixed top-0 w-full bg-black text-white shadow-lg z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
                 <a href="#"><img src="/assets/images/webeyah.png" alt="WEBEYAH Logo" class="h-8 rounded-full"></a>
@@ -56,8 +56,8 @@
             </div>
             <ul class="flex space-x-6">
                 <li><a href="#about" class="hover-text">About</a></li>
-                <li><a href="#services" class="hover-text">Service</a></li>
-                <li><a href="#contact" class="hover-text">Contact</a></li>
+                <li><a href="#services" class="hover-text">Services</a></li>
+                <li><a href="#contact" class="hover-text">Contacts</a></li>
             </ul>
         </div>
     </nav>
@@ -66,8 +66,8 @@
     <header class="flex flex-col justify-center items-center h-screen bg-gray-100 text-center px-4 pt-20 reveal">
         <div>
             <img src="/assets/images/webeyah.png" alt="WEBEYAH Logo" class="w-32 h-32 sm:w-40 sm:h-40 mb-6 rounded-full mx-auto hover-scale">
-            <h1 class="text-3xl sm:text-4xl font-light hover-text"><b>WEBEYAH</b> 🤗</h1>
-            <p class="text-gray-600 mt-4 text-sm sm:text-base">Your <b>Trusted Digital Agency</b> 🎯</p>
+            <h1 class="text-3xl sm:text-4xl font-bold hover-text"><b>WEBEYAH</b></h1>
+            <p class="text-gray-600 mt-4 text-sm sm:text-base">Your <b>Trusted Digital Agency</b>.</p>
         </div>
     </header>
 
@@ -80,11 +80,16 @@
     <!-- Services Section -->
     <section id="services" class="services p-6 bg-white max-w-4xl mx-auto my-8 rounded-lg shadow reveal">
         <h2 class="text-xl sm:text-2xl font-semibold mb-4">Our Service</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-1 gap-1">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="service-item bg-gray-50 p-4 rounded-lg shadow hover-scale">
+                <img src="/assets/images/web_design.png" alt="Custom Google Maps SEO" class="w-full h-40 object-cover rounded-lg mb-4">
+                <h3 class="text-lg font-semibold">Custom <b></b>Web Design</b></h3>
+                <p class="text-sm text-gray-600">Creating custom websites and online stores that reflect your brand and captivate your audience.</p>
+            </div>
             <div class="service-item bg-gray-50 p-4 rounded-lg shadow hover-scale">
                 <img src="/assets/images/seo.png" alt="Custom Google Maps SEO" class="w-full h-40 object-cover rounded-lg mb-4">
                 <h3 class="text-lg font-semibold">Custom <b>SEO</b></h3>
-                <p class="text-sm text-gray-600">Creating tailored Search Engine information designs that reflect your brand and captivate your audience.</p>
+                <p class="text-sm text-gray-600">Creating tailored Search Engine Optimization services that reflect your brand and captivate your audience.</p>
             </div>
         </div>
     </section>
@@ -103,7 +108,7 @@
     </footer>
 
     <!-- Scroll Button -->
-    <button class="scroll-button fixed bottom-5 right-5 bg-gray-700 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 text-lg shadow-lg button-click" onclick="toggleScroll()">⇵</button>
+    <button class="scroll-button fixed bottom-5 right-5 bg-black text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 text-lg shadow-lg button-click" onclick="toggleScroll()">⇵</button>
 
     <script>
         // Toggle scroll function to switch between top and bottom
