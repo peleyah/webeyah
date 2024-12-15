@@ -17,6 +17,46 @@
             font-family: 'Oswald', sans-serif;
         }
 
+         /* Loader Styles */
+        .loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.2s linear;
+        }
+
+        .loader-overlay.visible {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #000;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
         /* Section Reveal Animation */
         @keyframes fade-in-up {
             from {
@@ -53,6 +93,10 @@
 </head>
 <body class="font-sans text-gray-700">
 
+    <div id="loader" class="loader-overlay">
+        <div class="spinner"></div>
+    </div>
+
     <!-- Navbar -->
     <nav class="fixed top-0 w-full bg-black text-white shadow-lg z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -84,17 +128,17 @@
 
     <!-- Services Section -->
     <section id="services" class="services p-6 bg-white max-w-4xl mx-auto my-8 rounded-lg shadow reveal">
-        <h2 class="text-xl sm:text-2xl font-semibold mb-4" id="servicesTitle">Our Services</h2>
+        <h2 class="text-xl sm:text-2xl font-semibold mb-4" id="servicesTitle">Our Service</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <div class="service-item bg-gray-50 p-4 rounded-lg shadow hover-scale">
                 <img src="/assets/images/web_design.png" alt="Custom Google Maps SEO" class="w-full h-40 object-cover rounded-lg mb-4">
                 <h3 class="text-lg font-semibold" id="webDesignTitle">Custom <b>Web Design</b></h3>
-                <p class="text-sm text-gray-600" id="webDesignText">We create custom websites and online stores that reflect your brand identity and captivate your audience.</p>
+                <p class="text-sm text-gray-600" id="webDesignText">Creating custom websites and online stores that reflect your brand and captivate your audience.</p>
             </div>
             <div class="service-item bg-gray-50 p-4 rounded-lg shadow hover-scale">
                 <img src="/assets/images/seo.png" alt="Custom Google Maps SEO" class="w-full h-40 object-cover rounded-lg mb-4">
                 <h3 class="text-lg font-semibold" id="seoTitle">Custom <b>SEO</b></h3>
-                <p class="text-sm text-gray-600" id="seoText">We provide Search Engine Optimization services that make you stand out from the competition and help you gather your clients faster.</p>
+                <p class="text-sm text-gray-600" id="seoText">Creating tailored Search Engine Optimization services that reflect your brand and captivate your audience.</p>
             </div>
         </div>
     </section>
@@ -173,7 +217,7 @@
                 pt: "<b>WEBEYAH</b> é uma agência digital de ponta que oferece soluções inovadoras para empresas. Somos especializados na criação de serviços excepcionais de <b>SEO</b>."
             },
             servicesTitle: {
-                en: "Our Services",
+                en: "Our Service",
                 pt: "Nossos Serviços"
             },
             webDesignTitle: {
@@ -206,13 +250,36 @@
             }
         };
 
-        let currentLang = "en";
+let currentLang = "en";
+
         langSwitch.addEventListener("click", () => {
-            currentLang = currentLang === "en" ? "pt" : "en";
-            langSwitch.textContent = currentLang === "en" ? "PT" : "EN";
-            for (const [key, value] of Object.entries(textElements)) {
-                document.getElementById(key).innerHTML = value[currentLang];
-            }
+            // Show loader immediately
+            loader.classList.add("visible");
+
+            // Ensure loader is visible for at least 3 seconds
+            const minLoaderTime = 1500; // 2 seconds
+            const startTime = Date.now();
+
+            // Simulate language switch logic
+            setTimeout(() => {
+                currentLang = currentLang === "en" ? "pt" : "en";
+                langSwitch.textContent = currentLang === "en" ? "PT" : "EN";
+                for (const [key, value] of Object.entries(textElements)) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        element.innerHTML = value[currentLang];
+                    }
+                }
+
+                // Calculate remaining time to meet the minimum loader duration
+                const elapsedTime = Date.now() - startTime;
+                const remainingTime = minLoaderTime - elapsedTime;
+
+                // Hide loader after the remaining time (if any)
+                setTimeout(() => {
+                    loader.classList.remove("visible");
+                }, remainingTime > 0 ? remainingTime : 0);
+            }, 1000); // Simulate 1-second delay for language switch logic
         });
     </script>
 </body>
