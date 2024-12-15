@@ -52,6 +52,7 @@
     </style>
 </head>
 <body class="font-sans text-gray-700">
+
     <!-- Navbar -->
     <nav class="fixed top-0 w-full bg-black text-white shadow-lg z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -59,9 +60,9 @@
                 <a href="#"><img src="/assets/images/webeyah.png" alt="WEBEYAH Logo" class="h-8 rounded-full"></a>
             </div>
             <ul class="flex space-x-6">
-                <li><a href="#about" class="hover-text">About</a></li>
-                <li><a href="#services" class="hover-text">Services</a></li>
-                <li><a href="#contact" class="hover-text">Contacts</a></li>
+                <li><a href="#about" class="hover-text" id="navAbout">About</a></li>
+                <li><a href="#services" class="hover-text" id="navServices">Services</a></li>
+                <li><a href="#contact" class="hover-text" id="navContacts">Contacts</a></li>
             </ul>
         </div>
     </nav>
@@ -71,48 +72,51 @@
         <div>
             <img src="/assets/images/webeyah.png" alt="WEBEYAH Logo" class="w-32 h-32 sm:w-40 sm:h-40 mb-6 rounded-full mx-auto hover-scale">
             <h1 class="text-3xl sm:text-4xl font-bold hover-text"><b>WEBEYAH</b></h1>
-            <p class="text-gray-600 mt-4 text-sm sm:text-base">Your <b>Trusted Digital Agency</b>.</p>
+            <p class="text-gray-600 mt-4 text-sm sm:text-base" id="headerText">Your Trusted <b>Digital Agency</b></p>
         </div>
     </header>
 
     <!-- About Section -->
     <section id="about" class="about p-6 bg-white max-w-4xl mx-auto my-8 rounded-lg shadow reveal">
-        <h2 class="text-xl sm:text-2xl font-semibold mb-4">About Us</h2>
-        <p class="text-sm sm:text-base"><b>WEBEYAH</b> is a cutting-edge digital web agency that provides innovative web solutions for businesses. We specialize in creating exceptional <b>SEO</b> services.</p>
+        <h2 class="text-xl sm:text-2xl font-semibold mb-4" id="aboutTitle">About Us</h2>
+        <p class="text-sm sm:text-base" id="aboutText"><b>WEBEYAH</b> is a cutting-edge digital web agency that provides innovative web solutions for businesses.</p>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services p-6 bg-white max-w-4xl mx-auto my-8 rounded-lg shadow reveal">
-        <h2 class="text-xl sm:text-2xl font-semibold mb-4">Our Service</h2>
+        <h2 class="text-xl sm:text-2xl font-semibold mb-4" id="servicesTitle">Our Service</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <div class="service-item bg-gray-50 p-4 rounded-lg shadow hover-scale">
                 <img src="/assets/images/web_design.png" alt="Custom Google Maps SEO" class="w-full h-40 object-cover rounded-lg mb-4">
-                <h3 class="text-lg font-semibold">Custom <b></b>Web Design</b></h3>
-                <p class="text-sm text-gray-600">Creating custom websites and online stores that reflect your brand and captivate your audience.</p>
+                <h3 class="text-lg font-semibold" id="webDesignTitle">Custom <b>Web Design</b></h3>
+                <p class="text-sm text-gray-600" id="webDesignText">Creating custom websites and online stores that reflect your brand and captivate your audience.</p>
             </div>
             <div class="service-item bg-gray-50 p-4 rounded-lg shadow hover-scale">
                 <img src="/assets/images/seo.png" alt="Custom Google Maps SEO" class="w-full h-40 object-cover rounded-lg mb-4">
-                <h3 class="text-lg font-semibold">Custom <b>SEO</b></h3>
-                <p class="text-sm text-gray-600">Creating tailored Search Engine Optimization services that reflect your brand and captivate your audience.</p>
+                <h3 class="text-lg font-semibold" id="seoTitle">Custom <b>SEO</b></h3>
+                <p class="text-sm text-gray-600" id="seoText">Creating tailored Search Engine Optimization services that reflect your brand and captivate your audience.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact p-6 bg-white max-w-4xl mx-auto my-8 rounded-lg shadow reveal">
-        <h2 class="text-xl sm:text-2xl font-semibold mb-4">Contact Us</h2>
-        <p class="text-sm sm:text-base">
+        <h2 class="text-xl sm:text-2xl font-semibold mb-4" id="contactTitle">Contact Us</h2>
+        <p class="text-sm sm:text-base" id="contactText">
             Email: <a href="mailto:webeyah@gmail.com" class="text-blue-500 hover-text">webeyah@gmail.com</a>
         </p>
     </section>
 
     <!-- Footer Section -->
     <footer class="text-center p-4 bg-gray-100 text-sm sm:text-base reveal">
-        <p>&copy; 2024 WEBEYAH. All rights reserved.</p>
+        <p id="footerText">&copy; 2024 WEBEYAH. All rights reserved. | Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Scroll Button -->
-    <button class="scroll-button fixed bottom-5 right-5 bg-black text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 text-lg shadow-lg button-click" onclick="toggleScroll()">⇵</button>
+    <!-- Buttons -->
+    <div class="fixed bottom-5 right-5 flex space-x-3">
+        <button class="scroll-button bg-black text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 text-lg shadow-lg button-click" onclick="toggleScroll()">⇵</button>
+        <button id="langSwitch" class="bg-black text-white py-2 px-4 rounded shadow">Switch to Portuguese</button>
+    </div>
 
     <script>
         // Toggle scroll function to switch between top and bottom
@@ -138,6 +142,76 @@
         };
 
         window.addEventListener('scroll', revealOnScroll);
+
+        // Language switch functionality
+        const langSwitch = document.getElementById('langSwitch');
+        const textElements = {
+            navAbout: {
+                en: "About",
+                pt: "Sobre"
+            },
+            navServices: {
+                en: "Services",
+                pt: "Serviços"
+            },
+            navContacts: {
+                en: "Contacts",
+                pt: "Contatos"
+            },
+            headerText: {
+                en: "Your <b>Trusted Digital Agency</b>",
+                pt: "Sua <b>Agência Digital Confiável</b>"
+            },
+            aboutTitle: {
+                en: "About Us",
+                pt: "Sobre Nós"
+            },
+            aboutText: {
+                en: "<b>WEBEYAH</b> is a cutting-edge digital web agency that provides innovative web solutions for businesses. We specialize in creating exceptional <b>SEO</b> services.",
+                pt: "<b>WEBEYAH</b> é uma agência digital de ponta que oferece soluções inovadoras para empresas. Somos especializados na criação de serviços excepcionais de <b>SEO</b>."
+            },
+            servicesTitle: {
+                en: "Our Service",
+                pt: "Nossos Serviços"
+            },
+            webDesignTitle: {
+                en: "Custom <b>Web Design</b>",
+                pt: "<b>Design Web Personalizado</b>"
+            },
+            webDesignText: {
+                en: "Creating custom websites and online stores that reflect your brand and captivate your audience.",
+                pt: "Criando websites e lojas online personalizados que refletem sua marca e cativam seu público."
+            },
+            seoTitle: {
+                en: "Custom <b>SEO</b>",
+                pt: "<b>SEO Personalizado</b>"
+            },
+            seoText: {
+                en: "Creating tailored Search Engine Optimization services that reflect your brand and captivate your audience.",
+                pt: "Criando serviços de Otimização para Motores de Busca personalizados que refletem sua marca e cativam seu público."
+            },
+            contactTitle: {
+                en: "Contact Us",
+                pt: "Contate-nos"
+            },
+            contactText: {
+                en: "Email: <a href=\"mailto:webeyah@gmail.com\" class=\"text-blue-500 hover-text\">webeyah@gmail.com</a>",
+                pt: "Email: <a href=\"mailto:webeyah@gmail.com\" class=\"text-blue-500 hover-text\">webeyah@gmail.com</a>"
+            },
+            footerText: {
+                en: "&copy; 2024 WEBEYAH. All rights reserved.",
+                pt: "&copy; 2024 WEBEYAH. Todos os direitos reservados."
+            }
+        };
+
+        let currentLang = "en";
+        langSwitch.addEventListener("click", () => {
+            currentLang = currentLang === "en" ? "pt" : "en";
+            langSwitch.textContent = currentLang === "en" ? "Switch to Portuguese" : "Mudar para Inglês";
+            for (const [key, value] of Object.entries(textElements)) {
+                document.getElementById(key).innerHTML = value[currentLang];
+            }
+        });
     </script>
 </body>
 </html>
