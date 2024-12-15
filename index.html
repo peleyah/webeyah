@@ -114,8 +114,8 @@
 
     <!-- Buttons -->
     <div class="fixed bottom-5 right-5 flex space-x-3">
-        <button class="scroll-button bg-black text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 text-lg shadow-lg button-click" onclick="toggleScroll()">⇵</button>
-        <button id="langSwitch" class="bg-black text-white py-2 px-4 rounded shadow">Switch to Portuguese</button>
+        <button class="scroll-button bg-black text-white rounded w-10 h-10 sm:w-12 sm:h-12 text-lg shadow-lg button-click" onclick="toggleScroll()">⇵</button>
+        <button id="langSwitch" class="bg-black text-white py-2 px-4 rounded shadow">PT</button>
     </div>
 
     <script>
@@ -207,7 +207,7 @@
         let currentLang = "en";
         langSwitch.addEventListener("click", () => {
             currentLang = currentLang === "en" ? "pt" : "en";
-            langSwitch.textContent = currentLang === "en" ? "Switch to Portuguese" : "Mudar para Inglês";
+            langSwitch.textContent = currentLang === "en" ? "PT" : "EN";
             for (const [key, value] of Object.entries(textElements)) {
                 document.getElementById(key).innerHTML = value[currentLang];
             }
